@@ -1,15 +1,4 @@
-﻿"""Netflix Movies Data Analysis using Exploratory Data Analysis (EDA).
-
-This script loads Netflix title data, cleans movie records, performs EDA,
-prints beginner-friendly insights, and saves portfolio-ready charts.
-
-Expected dataset location:
-    data/raw/netflix_titles.csv
-
-The script also checks for netflix_titles.csv in the project root for convenience.
-"""
-
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 
@@ -154,6 +143,7 @@ def save_scatter_with_trend(movies: pd.DataFrame) -> None:
     plt.ylabel("Duration (Minutes)")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "duration_vs_release_year.png", dpi=300)
+    plt.close()
 
 
 def save_duration_histogram(movies: pd.DataFrame) -> None:
@@ -165,6 +155,7 @@ def save_duration_histogram(movies: pd.DataFrame) -> None:
     plt.ylabel("Number of Movies")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "duration_histogram.png", dpi=300)
+    plt.close()
 
 
 def save_genre_distribution(movies: pd.DataFrame) -> None:
@@ -178,6 +169,7 @@ def save_genre_distribution(movies: pd.DataFrame) -> None:
     plt.ylabel("Primary Genre")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "genre_distribution.png", dpi=300)
+    plt.close()
 
 
 def save_movies_per_year(movies: pd.DataFrame) -> None:
@@ -191,6 +183,7 @@ def save_movies_per_year(movies: pd.DataFrame) -> None:
     plt.ylabel("Number of Movies")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "movies_per_year.png", dpi=300)
+    plt.close()
 
 
 def save_boxplot_by_genre(movies: pd.DataFrame) -> None:
@@ -210,6 +203,7 @@ def save_boxplot_by_genre(movies: pd.DataFrame) -> None:
     plt.ylabel("Primary Genre")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "duration_by_genre_boxplot.png", dpi=300)
+    plt.close()
 
 
 def save_correlation_heatmap(movies: pd.DataFrame) -> None:
@@ -221,6 +215,7 @@ def save_correlation_heatmap(movies: pd.DataFrame) -> None:
     plt.title("Correlation Heatmap")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "correlation_heatmap.png", dpi=300)
+    plt.close()
 
 
 def save_genre_trend_analysis(movies: pd.DataFrame) -> None:
@@ -247,6 +242,7 @@ def save_genre_trend_analysis(movies: pd.DataFrame) -> None:
     plt.legend(title="Primary Genre")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "genre_duration_trends.png", dpi=300)
+    plt.close()
 
 
 def save_average_duration_by_decade(movies: pd.DataFrame) -> None:
@@ -267,9 +263,10 @@ def save_average_duration_by_decade(movies: pd.DataFrame) -> None:
     plt.ylabel("Average Duration (Minutes)")
     plt.tight_layout()
     plt.savefig(FIGURES_DIR / "average_duration_by_decade.png", dpi=300)
+    plt.close()
 
 
-def create_visualizations(movies: pd.DataFrame, show_charts: bool = True) -> None:
+def create_visualizations(movies: pd.DataFrame) -> None:
     """Create and save all EDA visualizations."""
     FIGURES_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -281,12 +278,6 @@ def create_visualizations(movies: pd.DataFrame, show_charts: bool = True) -> Non
     save_correlation_heatmap(movies)
     save_genre_trend_analysis(movies)
     save_average_duration_by_decade(movies)
-
-    if show_charts:
-        print("\nOpening charts. Close the chart windows to finish the script.")
-        plt.show()
-    else:
-        plt.close("all")
 
 
 def print_insights(movies: pd.DataFrame) -> None:
@@ -354,4 +345,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
