@@ -24,7 +24,7 @@ countries, and content types.
 - `type`: Content type, such as Movie or TV Show
 - `genre`: Genre or category of the title
 - `release_year`: Year the title was released
-- `duration`: Movie duration, usually stored like `90 min`
+- `duration`: Movie duration, usually stored like 
 - `country`: Country where the title was produced
 
 
