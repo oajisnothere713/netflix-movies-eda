@@ -49,7 +49,7 @@ netflix-movies-eda/
 3. copy the dataset into the given path ` netflix-movies-eda\data\raw\ `
 4. now create a virtual environment:
 
-write in terminal ->
+write in terminal:
 ```bash
 python -m venv .venv 
 ```
